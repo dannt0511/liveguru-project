@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+	<listeners>
+		<listener class-name="reportConfig.ExtentTestListener" />
+	</listeners>
+	<test name="RUN ON FIREFOX">
+		<parameter name="browser" value="firefox" />
+		<parameter name="userAppUrl" value="http://live.techpanda.org/" />
+		<classes>
+			<class name="liveguru.user.Liveguru_User_02_Product" />
+		</classes>
+	</test>
+</suite>
