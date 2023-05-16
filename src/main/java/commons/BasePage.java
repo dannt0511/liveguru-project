@@ -450,7 +450,6 @@ public class BasePage {
 
 	public void waitForElementClickable(String locator) {
 		WebDriverWait explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
-		scrollToElement(locator);
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByLocator(locator)));
 	}
 
@@ -470,6 +469,11 @@ public class BasePage {
 		explicitWait.until(ExpectedConditions.elementToBeClickable(getByXpathDynamicLocator(locator, dynamicValue)));
 	}
 
+	public void waitForElementPresence(String locator) {
+		WebDriverWait explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
+		explicitWait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(getByLocator(locator)));
+	}
+
 	public void openPage(String dynamicLocator, String... dynamicValue) {
 		waitForElementClickable(dynamicLocator, dynamicValue);
 		clickToElement(dynamicLocator, dynamicValue);
@@ -482,13 +486,13 @@ public class BasePage {
 		waitForElementClickable(BasePageUI.HEADER_ACCOUNT_MENU_LINK_BY_NAME, linkName);
 		clickToElement(BasePageUI.HEADER_ACCOUNT_MENU_LINK_BY_NAME, linkName);
 	}
-	
+
 	public HomePageObject clickLogo() {
 		waitForElementClickable(BasePageUI.LOGO);
 		clickToElement(BasePageUI.LOGO);
 		return PageGeneratorManager.openHomePage(driver);
 	}
-	
+
 	public ProductListPageObject openProductListFromSubHeader(String menuName) {
 		waitForElementClickable(BasePageUI.NAV_MENU, menuName);
 		clickToElement(BasePageUI.NAV_MENU, menuName);

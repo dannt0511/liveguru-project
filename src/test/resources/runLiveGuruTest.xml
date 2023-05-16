@@ -7,7 +7,7 @@
 		<parameter name="browser" value="firefox" />
 		<parameter name="userAppUrl" value="http://live.techpanda.org/" />
 		<classes>
-			<class name="liveguru.user.Liveguru_User_02_Product" />
+			<class name="liveguru.user.Liveguru_User_03_Order" />
 		</classes>
 	</test>
 </suite>

@@ -10,6 +10,7 @@ import user.pageObject.MyAccountInfoPageObject;
 import user.pageObject.ProductDetailPageObject;
 import user.pageObject.ProductListPageObject;
 import user.pageObject.RegisterPageObject;
+import user.pageObject.ShoppingCartPageObject;
 
 public class PageGeneratorManager {
 
@@ -43,6 +44,10 @@ public class PageGeneratorManager {
 
 	public static ProductDetailPageObject openProductDetailPage(WebDriver driver) {
 		return new ProductDetailPageObject(driver);
+	}
+
+	public static ShoppingCartPageObject openShoppingCartPage(WebDriver driver) {
+		return new ShoppingCartPageObject(driver);
 	}
 
 }

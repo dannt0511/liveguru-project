@@ -25,4 +25,10 @@ public class ProductListPageObject extends BasePage {
 		return PageGeneratorManager.openProductDetailPage(driver);
 	}
 
+	public ShoppingCartPageObject addProductToCart(String productName) {
+		waitForElementClickable(ProductListPageUI.ADD_TO_CART_BUTTON_BY_PRODUCT_NAME, productName);
+		clickToElement(ProductListPageUI.ADD_TO_CART_BUTTON_BY_PRODUCT_NAME, productName);
+		return PageGeneratorManager.openShoppingCartPage(driver);
+	}
+
 }

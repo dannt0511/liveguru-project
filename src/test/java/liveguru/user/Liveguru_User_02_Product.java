@@ -57,4 +57,5 @@ public class Liveguru_User_02_Product extends BaseTest {
 				"Product_01_Product_Price - Step 05: Verify if the price on product list screen is equal to the price on product detail screen");
 		Assert.assertEquals(productListPagePrice, detailPagePrice);
 	}
+
 }
