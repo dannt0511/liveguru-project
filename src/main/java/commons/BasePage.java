@@ -54,6 +54,10 @@ public class BasePage {
 		;
 	}
 
+	public String getWindowHandle() {
+		return driver.getWindowHandle();
+	}
+
 	public Alert waitAlertPresence() {
 		WebDriverWait explicitWait = new WebDriverWait(driver, GlobalConstants.LONG_TIMEOUT);
 		return explicitWait.until(ExpectedConditions.alertIsPresent());

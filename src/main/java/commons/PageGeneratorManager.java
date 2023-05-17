@@ -2,6 +2,7 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import user.pageObject.CompareProductPageObject;
 import user.pageObject.HomePageObject;
 import user.pageObject.LoginPageObject;
 import user.pageObject.LogoutPageObject;
@@ -48,6 +49,10 @@ public class PageGeneratorManager {
 
 	public static ShoppingCartPageObject openShoppingCartPage(WebDriver driver) {
 		return new ShoppingCartPageObject(driver);
+	}
+
+	public static CompareProductPageObject openCompareProductPage(WebDriver driver) {
+		return new CompareProductPageObject(driver);
 	}
 
 }

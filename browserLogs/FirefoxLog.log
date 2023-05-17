@@ -1,24 +1,30 @@
-1684248271287	geckodriver	INFO	Listening on 127.0.0.1:31429
-1684248271957	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\rust_mozprofile1m1KaD"
+1684333598896	geckodriver	INFO	Listening on 127.0.0.1:6313
+1684333599581	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-no-remote" "-profile" "C:\\Users\\ADMIN\\AppData\\Local\\Temp\\rust_mozprofileNtU78o"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1684248272893	Marionette	INFO	Marionette enabled
+1684333600552	Marionette	INFO	Marionette enabled
 Dynamically enable window occlusion 0
-1684248272902	Marionette	INFO	Listening on port 51312
-Read port: 51312
-1684248273562	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ADMIN\\AppData\\Local\\Temp\\rust_mozprofile1m1KaD\\search.json.mozlz4", (void 0)))
-JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 6111 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
-JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 6420 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
-JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 1275 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
-console.warn: LoginRecipes: "Falling back to a synchronous message for: http://live.techpanda.org."
-JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 7670 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
-console.warn: LoginRecipes: "Falling back to a synchronous message for: http://live.techpanda.org."
-[Parent 13264, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:777
-JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 62 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
-console.warn: LoginRecipes: "Falling back to a synchronous message for: http://live.techpanda.org."
-JavaScript warning: https://pagead2.googlesyndication.com/bg/P5-LUlKWgeVE-8P4rcqghB-z6blpBMZONJN7JkJDv9g.js line 2 > eval line 145 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
-1684248290777	Marionette	INFO	Stopped listening on port 51312
+1684333600560	Marionette	INFO	Listening on port 54602
+Read port: 54602
+1684333601490	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\ADMIN\\AppData\\Local\\Temp\\rust_mozprofileNtU78o\\search.json.mozlz4", (void 0)))
+JavaScript warning: https://pagead2.googlesyndication.com/bg/rGx2DEvyTJUcTI8TMyI5e4cGeqSZnDc_BhsxSP5O2IU.js line 2 > eval line 2371 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/rGx2DEvyTJUcTI8TMyI5e4cGeqSZnDc_BhsxSP5O2IU.js line 2 > eval line 7800 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: http://live.techpanda.org/js/varien/product.js, line 485: unreachable code after return statement
+JavaScript warning: http://live.techpanda.org/js/varien/configurable.js, line 291: unreachable code after return statement
+JavaScript warning: http://live.techpanda.org/js/calendar/calendar.js, line 138: unreachable code after return statement
+JavaScript warning: https://pagead2.googlesyndication.com/bg/rGx2DEvyTJUcTI8TMyI5e4cGeqSZnDc_BhsxSP5O2IU.js line 2 > eval line 4664 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/rGx2DEvyTJUcTI8TMyI5e4cGeqSZnDc_BhsxSP5O2IU.js line 2 > eval line 4912 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[Parent 9220, IPC I/O Parent] WARNING: DuplicateHandle failed for handle 0 in TransferHandles: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc:777
+JavaScript warning: https://pagead2.googlesyndication.com/bg/rGx2DEvyTJUcTI8TMyI5e4cGeqSZnDc_BhsxSP5O2IU.js line 2 > eval line 2297 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1684333617556	Marionette	WARN	TimedPromise timed out after 500 ms: stacktrace:
+TimedPromise/<@chrome://remote/content/marionette/sync.sys.mjs:219:24
+TimedPromise@chrome://remote/content/marionette/sync.sys.mjs:204:10
+interaction.flushEventLoop@chrome://remote/content/marionette/interaction.sys.mjs:425:10
+webdriverClickElement@chrome://remote/content/marionette/interaction.sys.mjs:173:31
+JavaScript warning: https://pagead2.googlesyndication.com/bg/rGx2DEvyTJUcTI8TMyI5e4cGeqSZnDc_BhsxSP5O2IU.js line 2 > eval line 4065 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: http://live.techpanda.org/js/varien/product.js, line 485: unreachable code after return statement
+1684333619643	Marionette	INFO	Stopped listening on port 54602
 Dynamically enable window occlusion 1
 console.warn: services.settings: main/partitioning-exempt-urls sync interrupted by shutdown
 WARNING: A blocker encountered an error while we were waiting.
@@ -62,30 +68,24 @@ WARNING: A blocker encountered an error while we were waiting.
           Phase: TelemetryController: Waiting for pending ping activity
           State: (none)
 WARNING: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
-WARNING: addBlocker@resourJce://gre/moavaScript error: resoudules/AsryncScheu:t/d/ogwrne/mo.duless/Asyys.mjs:72n7c:15
-aShutdowdnd.Bslyosc.mjks, leirn@er e7s2o7u: Errror:c Phaese ":profile-before-ch//grange" eis f/inismhed,o diut is tool es/lAastye tnoc Srheugtdioswtne.rs ycs.mjs:523o:m2p6le
-taidodnB lcoonditioncke "Or@rS.Fiesole:u rfcleu:sh I/O queued before profileBefor/e/Changre/modules/Asyncge"S
-hutdJavoawSnc.rsipt eryrso.r: resoumrjcs:4e:/5/8g:15
-sre/meotduleusp/ShuAtsdyncShutdoowwnn.@sryesosu.rce://grmej/sm,o dluilnees /7o2s7f:i le/osErrfoirle_a:s Phyasen c"_profrofile-befont.jre-scm:1548:28
-@reshource:a/n/gger"e /is modfuinislhed, it is too late toe sr/eogsifsitleer/ ocompletion condition s"fOS.Filiel: flush I/O queued befeo_raes ypnrco_ffirloenBte.fjoreChangse"
-mJ:av1568:16a
-@resSocurricpt error: resourece://gre/mod:u//gre/les/AsmyncSohutddules/oowsnf.islye.jss.mm:j1s2,: 3l0in
-e@ r7e2s7o:u rEcreror: ://gre/modulesPha/se "pTreolfeimleet-rbyStoreafgoer.es-ycsh.amnjgse:"1 0i:s2 8fi
-n_ishecd, it his tooe late cto regkistePre ncdoimnpletigoPingns @conrdeition s"oOS.uFrile:c ef:l/u/sh gIre//mOodul eqs/uTeeuleemetdr ybSeeforen dp.syrso.mjfsi:l8e63:B1efo7re
-sCehtaungep"@r
-JeasourcvaSec:r/i/pgre/tm oduleesrr/or: resource:T//gre/modules/AeslemetrySeynd.nscyShsu.tmdjosw:8n03:18.s
-ysse.tmujps@resource://g,r lei/nmeodule s7/2T7ele:m eEtrrryoSr: Phend.sysa.mjs:241s:30e 
-setupTelemetry/this._delayedInitTask<@resour"profciel:/e-b/egfreo/rmodules/Teel-ecmheatnge"r isy Cfoinntirsohlelde,r Piatren is tt.osyos late t.o regimsjtse:r8 2c9o:m3p6letion 
-cobsoenrdvie@rtion "OS.eFiles:ource: flush I/O /q/gureue/ed mbefoodules/AsryncShe profileBuetfdoreoCwn.shanysge".
-mJjavaScript error: s:576:16
-resou
-WARNrce:/ING/gre/modules/AsyncShutdo: A blwonc.sker encountered an eryror sw.hmijls,e  lwien ew 7e2re7: waitin Errorg:.
-         P h aBsleo c"profilek-beer: fore- TelemecthanrgyeC" ontrolleri:s sh ufinitshedt, iti nis tgo od olwna
- t e   to re g     Phase: isterpro cofile-before-mplectionh caonngditie-toenl "OemeS.Ftirly
-          Set:a tfel:ush  I/O Equeuedr beforreor getting st ate:p rEorror: Phase "fpirofleBefioreClhea-nbgeef"o
-rJe-chaavnaScrgiep"t err or: reis sfoiurcnise://grhede,/module its /AsyncShutdois toow laten.sy tos.mj sr,e lgiinset e7r2 7c:o mEpletrion rcoorn:d Phaise tio"prno fil"eO-Sb.eFfiolree:- cfhlaunsh I/Og queeued "b eifore prso fifileBefnished,o rietC hiangse"  at taodod laBlotcek eto rerg@resoiurcset:er c/o/mgre/pmletoidoulnes/ Asycnocndition "OS.FileS: flhush I/uOt dquown.seued bysefor.em jpsrof:72i7:1l5eBef
-oreaCdhdBlaoncgke"
-er@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+WARNING: addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
+setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
+@resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
+@resource://gre/modules/osfile.jsm:12:30
+@resource://gre/modules/TelemetryStorage.sys.mjs:10:28
+_checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
+setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
+setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
+setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:829:36
+observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
+
+WARNING: A blocker encountered an error while we were waiting.
+          Blocker:  TelemetryController: shutting down
+          Phase: profile-before-change-telemetry
+          State: Error getting state: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange" at addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:727:15
+addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:523:26
 addBlocker@resource://gre/modules/AsyncShutdown.sys.mjs:458:15
 setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
 @resource://gre/modules/osfile/osfile_async_front.jsm:1568:16
@@ -108,6 +108,12 @@ setupShutdown@resource://gre/modules/osfile/osfile_async_front.jsm:1548:28
 _checkPendingPings@resource://gre/modules/TelemetrySend.sys.mjs:863:17
 setup@resource://gre/modules/TelemetrySend.sys.mjs:803:18
 setup@resource://gre/modules/TelemetrySend.sys.mjs:241:30
-setupTelemetry/this._delayedInitTask<@resource://gre/modules/TelemetryControllerParent.sys.mjs:829:36
-observe@resource://gre/modules/AsyncShutdown.sys.mjs:576:16
-
+setupTelemetJavaScriry/thpits .e_rdrelayedInoirt:T rask<@resource:/e/sgoruerce:///gmroed/ules/TelemetryControlmleroPdaurelent.ssys.m/js:8A29:3s6ync
+Sobsehrvuet@resdourcoe://wgre/nm.osys.mjs, line 727: Error: Phasde "profile-beuforel-esc/AsyhnacShuntgdeown."s yiss fi.nmijs:s5h7e6d:,16
+ 
+it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"
+JavaScript error: resource://gre/modules/AsyncShutdown.sys.mjs, line 727: Error: Phase "profile-before-change" is finished, it is too late to register completion condition "OS.File: flush I/O queued before profileBeforeChange"

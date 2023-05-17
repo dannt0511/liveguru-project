@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -85,6 +86,11 @@ public class Liveguru_User_03_Order extends BaseTest {
 				"Order_02_Edit_Qty - Step 05: Verify if the shopping cart is empty");
 		Assert.assertEquals(shoppingCartPage.getPageTitle(), emptyPageTitle);
 		Assert.assertEquals(shoppingCartPage.getEmptyMessage(), emptyMsg);
+	}
+
+	@AfterClass
+	public void afterClass() {
+		closeBrowserDriver();
 	}
 
 }
