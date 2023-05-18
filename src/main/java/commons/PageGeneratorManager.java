@@ -11,7 +11,10 @@ import user.pageObject.MyAccountInfoPageObject;
 import user.pageObject.ProductDetailPageObject;
 import user.pageObject.ProductListPageObject;
 import user.pageObject.RegisterPageObject;
+import user.pageObject.ReviewProductPageObject;
+import user.pageObject.ShareWishlistPageObject;
 import user.pageObject.ShoppingCartPageObject;
+import user.pageObject.WishlistPageObject;
 
 public class PageGeneratorManager {
 
@@ -53,6 +56,18 @@ public class PageGeneratorManager {
 
 	public static CompareProductPageObject openCompareProductPage(WebDriver driver) {
 		return new CompareProductPageObject(driver);
+	}
+
+	public static WishlistPageObject openWishlistPage(WebDriver driver) {
+		return new WishlistPageObject(driver);
+	}
+
+	public static ShareWishlistPageObject openShareWishlistPage(WebDriver driver) {
+		return new ShareWishlistPageObject(driver);
+	}
+
+	public static ReviewProductPageObject openReviewProductPage(WebDriver driver) {
+		return new ReviewProductPageObject(driver);
 	}
 
 }

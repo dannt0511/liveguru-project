@@ -50,4 +50,11 @@ public class ProductListPageObject extends BasePage {
 		return PageGeneratorManager.openCompareProductPage(driver);
 	}
 
+	public WishlistPageObject addProductToWishlist(String wishlistProduct) {
+		waitForPageLoadReady();
+		waitForElementClickable(ProductListPageUI.ADD_TO_WISHLIST_LINK_BY_PRODUCT_NAME,wishlistProduct);
+		clickToElement(ProductListPageUI.ADD_TO_WISHLIST_LINK_BY_PRODUCT_NAME,wishlistProduct);
+		return PageGeneratorManager.openWishlistPage(driver);
+	}
+
 }
