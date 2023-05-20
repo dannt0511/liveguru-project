@@ -2,6 +2,9 @@ package commons;
 
 import org.openqa.selenium.WebDriver;
 
+import user.pageObject.AdvanceSearchResultPageObject;
+import user.pageObject.AdvancedSearchPageObject;
+import user.pageObject.CheckoutPageObject;
 import user.pageObject.CompareProductPageObject;
 import user.pageObject.HomePageObject;
 import user.pageObject.LoginPageObject;
@@ -68,6 +71,18 @@ public class PageGeneratorManager {
 
 	public static ReviewProductPageObject openReviewProductPage(WebDriver driver) {
 		return new ReviewProductPageObject(driver);
+	}
+
+	public static CheckoutPageObject openCheckoutPage(WebDriver driver) {
+		return new CheckoutPageObject(driver);
+	}
+
+	public static AdvancedSearchPageObject openAdvanceSearchPage(WebDriver driver) {
+		return new AdvancedSearchPageObject(driver);
+	}
+
+	public static AdvanceSearchResultPageObject openAdvancedSearchResultPage(WebDriver driver) {
+		return new AdvanceSearchResultPageObject(driver);
 	}
 
 }

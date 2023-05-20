@@ -3,8 +3,8 @@
 	<listeners>
 		<listener class-name="reportConfig.ExtentTestListener" />
 	</listeners>
-	<test name="RUN ON FIREFOX">
-		<parameter name="browser" value="firefox" />
+	<test name="RUN ON CHROME">
+		<parameter name="browser" value="chrome" />
 		<parameter name="userAppUrl" value="http://live.techpanda.org/" />
 		<classes>
 			<class name="liveguru.user.Liveguru_User_02_Product" />

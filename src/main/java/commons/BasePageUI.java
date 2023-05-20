@@ -10,4 +10,5 @@ public class BasePageUI {
 	public static final String NAV_MENU = "xpath=//a[text() = '%s']";
 
 	public static final String SIDE_MENU_DYNAMIC_LOCATOR_BY_NAME = "xpath=//a[text() = 'Account Information']";
+	public static final String FOOTER_DYNAMIC_LOCATOR_BY_NAME = "xpath=//div[@class='footer']//a[text() = '%s']";
 }

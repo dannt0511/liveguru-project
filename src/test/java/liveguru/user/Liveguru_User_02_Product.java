@@ -11,9 +11,12 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
 
+import commons.BasePageUI;
 import commons.BaseTest;
 import commons.PageGeneratorManager;
 import reportConfig.ExtentTestManager;
+import user.pageObject.AdvanceSearchResultPageObject;
+import user.pageObject.AdvancedSearchPageObject;
 import user.pageObject.CompareProductPageObject;
 import user.pageObject.HomePageObject;
 import user.pageObject.MyAccountDashboardPageObject;
@@ -29,7 +32,7 @@ public class Liveguru_User_02_Product extends BaseTest {
 	private String browser, firstProductName, secondProductName, wishlistProduct, productListPagePrice, detailPagePrice,
 			firstSuccessMsg, secondSuccessMsg, currentWinId, winTitle, firstName, lastName, email, password, rePassword,
 			wishlistSuccessMsg, shareEmail, shareSuccessMsg, reviewProduct, reviewErrorMsg, reviewSuccessMsg, rating,
-			reviewTitle, reviewDetail, reviewNickname;
+			reviewTitle, reviewDetail, reviewNickname, firstPriceFrom, firstPriceTo, secondPriceFrom, secondPriceTo;
 	private HomePageObject homePage;
 	private ProductListPageObject productListPage;
 	private ProductDetailPageObject productDetailPage;
@@ -39,6 +42,8 @@ public class Liveguru_User_02_Product extends BaseTest {
 	private WishlistPageObject wishlistPage;
 	private ShareWishlistPageObject shareWishlistPage;
 	private ReviewProductPageObject reviewPage;
+	private AdvancedSearchPageObject advanceSearchPage;
+	private AdvanceSearchResultPageObject searchResultPage;
 
 	@Parameters({ "browser", "userAppUrl" })
 	@BeforeClass
@@ -65,6 +70,10 @@ public class Liveguru_User_02_Product extends BaseTest {
 		reviewTitle = "Title";
 		reviewDetail = "Detail";
 		reviewNickname = "reaganlynn";
+		firstPriceFrom = "0";
+		firstPriceTo = "150";
+		secondPriceFrom = "151";
+		secondPriceTo = "1000";
 
 		driver = openBrowsers(browser, appUrl);
 		homePage = PageGeneratorManager.openHomePage(driver);
@@ -206,6 +215,42 @@ public class Liveguru_User_02_Product extends BaseTest {
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Product_04_Review_Product - Step 08: Verify add review success message");
 		Assert.assertEquals(reviewPage.getSuccessMsg(), reviewSuccessMsg);
+	}
+
+	@Test
+	public void Product_05_Advance_Search(Method method) {
+		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Product_05_Advance_Search");
+		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 01: Go to Advance seach page");
+		reviewPage.openPage(BasePageUI.FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
+		advanceSearchPage = PageGeneratorManager.openAdvanceSearchPage(driver);
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Product_05_Advance_Search - Step 02: Input search condition Price");
+		advanceSearchPage.inputPriceFromTextbox(firstPriceFrom);
+		advanceSearchPage.inputPriceToTextbox(firstPriceTo);
+
+		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 03: Click button Search");
+		searchResultPage = advanceSearchPage.clickSearchButton();
+
+		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 04: Verify result");
+		Assert.assertEquals(searchResultPage.getResultNumber(), "2");
+		Assert.assertTrue(searchResultPage.isResultPriceInRange(firstPriceFrom, firstPriceTo));
+
+		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 05: Go to Advance seach page");
+		searchResultPage.openPage(BasePageUI.FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
+		advanceSearchPage = PageGeneratorManager.openAdvanceSearchPage(driver);
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Product_05_Advance_Search - Step 06: Input search condition Price");
+		advanceSearchPage.inputPriceFromTextbox(secondPriceFrom);
+		advanceSearchPage.inputPriceToTextbox(secondPriceTo);
+
+		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 07: Click button Search");
+		searchResultPage = advanceSearchPage.clickSearchButton();
+
+		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 08: Verify result");
+		Assert.assertEquals(searchResultPage.getResultNumber(), "3");
+		Assert.assertTrue(searchResultPage.isResultPriceInRange(secondPriceFrom, secondPriceTo));
 	}
 
 	@AfterClass

@@ -3,12 +3,15 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
+import commons.PageGeneratorManager;
 import user.pageUIs.ShoppingCartPageUI;
 
 public class ShoppingCartPageObject extends BasePage {
+	private WebDriver driver;
 
 	public ShoppingCartPageObject(WebDriver driver) {
 		super(driver);
+		this.driver = driver;
 	}
 
 	public void inputCouponCodeTextbox(String couponCode) {
@@ -24,7 +27,6 @@ public class ShoppingCartPageObject extends BasePage {
 	}
 
 	public String getSuccessMsg() {
-		waitForPageLoadReady();
 		waitForElementVisible(ShoppingCartPageUI.SUCCESS_MSG);
 		return getElementText(ShoppingCartPageUI.SUCCESS_MSG);
 	}
@@ -54,7 +56,6 @@ public class ShoppingCartPageObject extends BasePage {
 	}
 
 	public String getErrorMessage() {
-		waitForPageLoadReady();
 		waitForElementVisible(ShoppingCartPageUI.ERROR_MSG);
 		return getElementText(ShoppingCartPageUI.ERROR_MSG);
 	}
@@ -76,8 +77,65 @@ public class ShoppingCartPageObject extends BasePage {
 	}
 
 	public String getPageTitle() {
-		waitForPageLoadReady();
 		waitForElementVisible(ShoppingCartPageUI.PAGE_TITLE);
 		return getElementText(ShoppingCartPageUI.PAGE_TITLE).trim();
+	}
+
+	public void selectCountrySelextbox(String shippingCountry) {
+		waitForElementClickable(ShoppingCartPageUI.COUNTRY_SELECTBOX);
+		selectInDefaultDropdown(ShoppingCartPageUI.COUNTRY_SELECTBOX, shippingCountry);
+
+	}
+
+	public void selectStateSelextbox(String shippingState) {
+		waitForElementClickable(ShoppingCartPageUI.STATE_TEXTBOX);
+		selectInDefaultDropdown(ShoppingCartPageUI.STATE_TEXTBOX, shippingState);
+
+	}
+
+	public void inputZipTextbox(String shippingZip) {
+		waitForElementClickable(ShoppingCartPageUI.ZIP_TEXTBOX);
+		sendKeysToElement(ShoppingCartPageUI.ZIP_TEXTBOX, shippingZip);
+
+	}
+
+	public void clickEstimateLink() {
+		waitForElementClickable(ShoppingCartPageUI.ESTIMATE_LINK);
+		clickToElement(ShoppingCartPageUI.ESTIMATE_LINK);
+
+	}
+
+	public String getShippingCost() {
+		waitForElementVisible(ShoppingCartPageUI.ESTIMATE_SHIPPING_COST);
+		return getElementText(ShoppingCartPageUI.ESTIMATE_SHIPPING_COST);
+	}
+
+	public void selectShippingCost() {
+		waitForElementClickable(ShoppingCartPageUI.ESTIMATE_SHIPPING_RADIO);
+		checkTheCheckboxOrRadio(ShoppingCartPageUI.ESTIMATE_SHIPPING_RADIO);
+
+	}
+
+	public void clickUpdateTotalButton() {
+		waitForElementClickable(ShoppingCartPageUI.UPDATE_TOTAL_BUTTON);
+		clickToElement(ShoppingCartPageUI.UPDATE_TOTAL_BUTTON);
+
+	}
+
+	public String getTotalPrice() {
+		waitForElementVisible(ShoppingCartPageUI.TOTAL_PRICE);
+		return getElementText(ShoppingCartPageUI.TOTAL_PRICE);
+	}
+
+	public CheckoutPageObject clickProceedToCheckoutButton() {
+		waitForElementClickable(ShoppingCartPageUI.PROCEED_TO_CHECKOUT_BUTTON);
+		clickToElement(ShoppingCartPageUI.PROCEED_TO_CHECKOUT_BUTTON);
+		return PageGeneratorManager.openCheckoutPage(driver);
+	}
+
+	public void clickCouponCancelLink() {
+		waitForElementClickable(ShoppingCartPageUI.CANCEL_COUPON_LINK);
+		clickToElement(ShoppingCartPageUI.CANCEL_COUPON_LINK);
+
 	}
 }
