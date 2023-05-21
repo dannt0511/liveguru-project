@@ -13,7 +13,7 @@ import com.aventstack.extentreports.Status;
 
 import commons.BasePageUI;
 import commons.BaseTest;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import reportConfig.ExtentTestManager;
 import user.pageObject.HomePageObject;
 import user.pageObject.LoginPageObject;
@@ -46,7 +46,7 @@ public class Liveguru_User_01_Register extends BaseTest {
 		accountDashboardPageTitle = "MY DASHBOARD";
 		welcomeMessage = "Hello, " + firstName + " " + lastName + "!";
 		driver = openBrowsers(browser, appUrl);
-		homePage = PageGeneratorManager.openHomePage(driver);
+		homePage = UserPageGeneratorManager.openHomePage(driver);
 
 	}
 
@@ -57,7 +57,7 @@ public class Liveguru_User_01_Register extends BaseTest {
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Register_01_Register_Success - Step 01: Click My account menu and click Register link on pulldown");
 		homePage.clickLinkOnMyAccountMenu("Register");
-		registerPage = PageGeneratorManager.openRegisterPage(driver);
+		registerPage = UserPageGeneratorManager.openRegisterPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Register_01_Register_Success - Step 02: Input textbox firstname with value '" + firstName + "'");
@@ -93,7 +93,7 @@ public class Liveguru_User_01_Register extends BaseTest {
 		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Register_02_Account_Info");
 		ExtentTestManager.getTest().log(Status.INFO, "Register_02_Account_Info - Step 01: Open Account info page");
 		accountDashboardPage.openPage(BasePageUI.SIDE_MENU_DYNAMIC_LOCATOR_BY_NAME, "Account Information");
-		accountInfoPage = PageGeneratorManager.openAccountInfoPage(driver);
+		accountInfoPage = UserPageGeneratorManager.openAccountInfoPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Register_02_Account_Info - Step 02: Verify if firstname textbox value is '" + firstName + "'");
@@ -114,12 +114,12 @@ public class Liveguru_User_01_Register extends BaseTest {
 		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Register_03_Login");
 		ExtentTestManager.getTest().log(Status.INFO, "Register_03_Login - Step 01: Logout");
 		accountInfoPage.clickLinkOnMyAccountMenu("Log Out");
-		logoutPage = PageGeneratorManager.openLogoutPage(driver);
+		logoutPage = UserPageGeneratorManager.openLogoutPage(driver);
 		homePage = logoutPage.clickLogo();
 
 		ExtentTestManager.getTest().log(Status.INFO, "Register_03_Login - Step 02: Open Login page");
 		homePage.clickLinkOnMyAccountMenu("Log In");
-		loginPage = PageGeneratorManager.openLoginPage(driver);
+		loginPage = UserPageGeneratorManager.openLoginPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Register_03_Login - Step 03: Input email textbox with value '" + email + "'");

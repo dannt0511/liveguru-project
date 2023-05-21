@@ -3,7 +3,7 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import user.pageUIs.ShoppingCartPageUI;
 
 public class ShoppingCartPageObject extends BasePage {
@@ -130,7 +130,7 @@ public class ShoppingCartPageObject extends BasePage {
 	public CheckoutPageObject clickProceedToCheckoutButton() {
 		waitForElementClickable(ShoppingCartPageUI.PROCEED_TO_CHECKOUT_BUTTON);
 		clickToElement(ShoppingCartPageUI.PROCEED_TO_CHECKOUT_BUTTON);
-		return PageGeneratorManager.openCheckoutPage(driver);
+		return UserPageGeneratorManager.openCheckoutPage(driver);
 	}
 
 	public void clickCouponCancelLink() {

@@ -35,6 +35,9 @@ public class BaseTest {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		switch (browser) {
 		case FIREFOX:
+			System.out.println("BaseTest: create driver");
+			System.setProperty("webdriver.gecko.driver",
+					GlobalConstants.PROJECT_PATH + "\\browserDriver\\geckodriver.exe");
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
 					GlobalConstants.PROJECT_PATH + "\\browserLogs\\FirefoxLog.log");
@@ -96,10 +99,8 @@ public class BaseTest {
 		String cmd = null;
 		try {
 			String osName = GlobalConstants.OS_NAME.toLowerCase();
-			log.info("OS name = " + osName);
 
 			String driverInstanceName = driver.toString().toLowerCase();
-			log.info("Driver instance name = " + driverInstanceName);
 
 			String browserDriverName = null;
 

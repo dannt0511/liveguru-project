@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 
 import commons.BaseTest;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import liveguru.testData.User_Order;
 import liveguru.testData.User_Order.Coupon;
 import liveguru.testData.User_Order.Edit_Qty;
@@ -46,9 +46,9 @@ public class Liveguru_User_03_Order extends BaseTest {
 		rePassword = "3k3AhJgE";
 
 		driver = openBrowsers(browser, appUrl);
-		homePage = PageGeneratorManager.openHomePage(driver);
+		homePage = UserPageGeneratorManager.openHomePage(driver);
 		homePage.clickLinkOnMyAccountMenu("Register");
-		registerPage = PageGeneratorManager.openRegisterPage(driver);
+		registerPage = UserPageGeneratorManager.openRegisterPage(driver);
 		registerPage.inputFirstnameTextbox(firstName);
 		registerPage.inputLastnameTextbox(lastName);
 		registerPage.inputEmailTextbox(email);

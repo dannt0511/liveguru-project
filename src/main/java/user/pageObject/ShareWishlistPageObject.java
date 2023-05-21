@@ -3,7 +3,7 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import user.pageUIs.ShareWishlistPageUI;
 
 public class ShareWishlistPageObject extends BasePage {
@@ -22,6 +22,6 @@ public class ShareWishlistPageObject extends BasePage {
 	public WishlistPageObject clickShareWishlistButton() {
 		waitForElementClickable(ShareWishlistPageUI.SHARE_WISHLIST_BUTTON);
 		clickToElement(ShareWishlistPageUI.SHARE_WISHLIST_BUTTON);
-		return PageGeneratorManager.openWishlistPage(driver);
+		return UserPageGeneratorManager.openWishlistPage(driver);
 	}
 }

@@ -3,7 +3,7 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import user.pageUIs.CompareProductPageUI;
 
 public class CompareProductPageObject extends BasePage {
@@ -26,7 +26,7 @@ public class CompareProductPageObject extends BasePage {
 
 	public ProductListPageObject closeWindow(String winId) {
 		deleteAllWinExceptParent(winId);
-		return PageGeneratorManager.openProductListPage(driver);
+		return UserPageGeneratorManager.openProductListPage(driver);
 	}
 
 }

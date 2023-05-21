@@ -3,7 +3,7 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import user.pageUIs.AdvancedSearchPageUI;
 
 public class AdvancedSearchPageObject extends BasePage {
@@ -29,7 +29,7 @@ public class AdvancedSearchPageObject extends BasePage {
 	public AdvanceSearchResultPageObject clickSearchButton() {
 		waitForElementClickable(AdvancedSearchPageUI.SEARCH_BUTTON);
 		clickToElement(AdvancedSearchPageUI.SEARCH_BUTTON);
-		return PageGeneratorManager.openAdvancedSearchResultPage(driver);
+		return UserPageGeneratorManager.openAdvancedSearchResultPage(driver);
 	}
 
 }

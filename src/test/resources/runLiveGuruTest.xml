@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-	<listeners>
+	<!--<listeners>
 		<listener class-name="reportConfig.ExtentTestListener" />
-	</listeners>
+	</listeners>-->
 	<test name="RUN ON CHROME">
-		<parameter name="browser" value="chrome" />
+		<parameter name="browser" value="firefox" />
 		<parameter name="userAppUrl" value="http://live.techpanda.org/" />
+		<parameter name="adminAppUrl" value="http://live.techpanda.org/index.php/backendlogin" />
 		<classes>
-			<class name="liveguru.user.Liveguru_User_02_Product" />
+			<class name="liveguru.admin.Liveguru_Admin_01_Order" />
 		</classes>
 	</test>
 </suite>

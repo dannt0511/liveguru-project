@@ -3,7 +3,7 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import user.pageUIs.LoginPageUI;
 
 public class LoginPageObject extends BasePage {
@@ -29,7 +29,7 @@ public class LoginPageObject extends BasePage {
 	public MyAccountDashboardPageObject clickLoginButton() {
 		waitForElementClickable(LoginPageUI.LOGIN_BUTTON);
 		clickToElement(LoginPageUI.LOGIN_BUTTON);
-		return PageGeneratorManager.openAccountDashboardPage(driver);
+		return UserPageGeneratorManager.openAccountDashboardPage(driver);
 	}
 
 }

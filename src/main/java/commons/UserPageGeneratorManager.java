@@ -19,7 +19,7 @@ import user.pageObject.ShareWishlistPageObject;
 import user.pageObject.ShoppingCartPageObject;
 import user.pageObject.WishlistPageObject;
 
-public class PageGeneratorManager {
+public class UserPageGeneratorManager {
 
 	public static HomePageObject openHomePage(WebDriver driver) {
 		return new HomePageObject(driver);

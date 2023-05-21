@@ -13,7 +13,7 @@ import com.aventstack.extentreports.Status;
 
 import commons.BasePageUI;
 import commons.BaseTest;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import reportConfig.ExtentTestManager;
 import user.pageObject.AdvanceSearchResultPageObject;
 import user.pageObject.AdvancedSearchPageObject;
@@ -76,10 +76,10 @@ public class Liveguru_User_02_Product extends BaseTest {
 		secondPriceTo = "1000";
 
 		driver = openBrowsers(browser, appUrl);
-		homePage = PageGeneratorManager.openHomePage(driver);
+		homePage = UserPageGeneratorManager.openHomePage(driver);
 		currentWinId = homePage.getWindowHandle();
 		homePage.clickLinkOnMyAccountMenu("Register");
-		registerPage = PageGeneratorManager.openRegisterPage(driver);
+		registerPage = UserPageGeneratorManager.openRegisterPage(driver);
 		registerPage.inputFirstnameTextbox(firstName);
 		registerPage.inputLastnameTextbox(lastName);
 		registerPage.inputEmailTextbox(email);
@@ -222,7 +222,7 @@ public class Liveguru_User_02_Product extends BaseTest {
 		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Product_05_Advance_Search");
 		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 01: Go to Advance seach page");
 		reviewPage.openPage(BasePageUI.FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
-		advanceSearchPage = PageGeneratorManager.openAdvanceSearchPage(driver);
+		advanceSearchPage = UserPageGeneratorManager.openAdvanceSearchPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Product_05_Advance_Search - Step 02: Input search condition Price");
@@ -238,7 +238,7 @@ public class Liveguru_User_02_Product extends BaseTest {
 
 		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 05: Go to Advance seach page");
 		searchResultPage.openPage(BasePageUI.FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
-		advanceSearchPage = PageGeneratorManager.openAdvanceSearchPage(driver);
+		advanceSearchPage = UserPageGeneratorManager.openAdvanceSearchPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Product_05_Advance_Search - Step 06: Input search condition Price");

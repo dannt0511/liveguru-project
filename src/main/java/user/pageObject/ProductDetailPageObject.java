@@ -3,7 +3,7 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import user.pageUIs.ProductDetailPageUI;
 
 public class ProductDetailPageObject extends BasePage {
@@ -22,7 +22,7 @@ public class ProductDetailPageObject extends BasePage {
 	public ReviewProductPageObject clickAddReviewLink() {
 		waitForElementClickable(ProductDetailPageUI.ADD_REVIEW_LINK);
 		clickToElement(ProductDetailPageUI.ADD_REVIEW_LINK);
-		return PageGeneratorManager.openReviewProductPage(driver);
+		return UserPageGeneratorManager.openReviewProductPage(driver);
 	}
 
 }

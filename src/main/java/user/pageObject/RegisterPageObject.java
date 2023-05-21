@@ -3,7 +3,7 @@ package user.pageObject;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import commons.PageGeneratorManager;
+import commons.UserPageGeneratorManager;
 import user.pageUIs.RegisterPageUI;
 
 public class RegisterPageObject extends BasePage {
@@ -47,7 +47,7 @@ public class RegisterPageObject extends BasePage {
 	public MyAccountDashboardPageObject clickRegisterButton() {
 		waitForElementClickable(RegisterPageUI.REGISTER_BUTTON);
 		clickToElement(RegisterPageUI.REGISTER_BUTTON);
-		return PageGeneratorManager.openAccountDashboardPage(driver);
+		return UserPageGeneratorManager.openAccountDashboardPage(driver);
 	}
 
 }

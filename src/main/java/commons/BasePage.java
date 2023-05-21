@@ -494,13 +494,13 @@ public class BasePage {
 	public HomePageObject clickLogo() {
 		waitForElementClickable(BasePageUI.LOGO);
 		clickToElement(BasePageUI.LOGO);
-		return PageGeneratorManager.openHomePage(driver);
+		return UserPageGeneratorManager.openHomePage(driver);
 	}
 
 	public ProductListPageObject openProductListFromSubHeader(String menuName) {
 		waitForElementClickable(BasePageUI.NAV_MENU, menuName);
 		clickToElement(BasePageUI.NAV_MENU, menuName);
-		return PageGeneratorManager.openProductListPage(driver);
+		return UserPageGeneratorManager.openProductListPage(driver);
 	}
 
 }
