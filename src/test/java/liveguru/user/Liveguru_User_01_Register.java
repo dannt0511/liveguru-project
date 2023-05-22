@@ -92,7 +92,7 @@ public class Liveguru_User_01_Register extends BaseTest {
 	public void Register_02_Account_Info(Method method) {
 		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Register_02_Account_Info");
 		ExtentTestManager.getTest().log(Status.INFO, "Register_02_Account_Info - Step 01: Open Account info page");
-		accountDashboardPage.openPage(BasePageUI.SIDE_MENU_DYNAMIC_LOCATOR_BY_NAME, "Account Information");
+		accountDashboardPage.openPage(BasePageUI.USER_SIDE_MENU_DYNAMIC_LOCATOR_BY_NAME, "Account Information");
 		accountInfoPage = UserPageGeneratorManager.openAccountInfoPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,

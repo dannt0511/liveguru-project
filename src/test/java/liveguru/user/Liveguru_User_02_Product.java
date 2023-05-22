@@ -221,7 +221,7 @@ public class Liveguru_User_02_Product extends BaseTest {
 	public void Product_05_Advance_Search(Method method) {
 		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Product_05_Advance_Search");
 		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 01: Go to Advance seach page");
-		reviewPage.openPage(BasePageUI.FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
+		reviewPage.openPage(BasePageUI.USER_FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
 		advanceSearchPage = UserPageGeneratorManager.openAdvanceSearchPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,
@@ -237,7 +237,7 @@ public class Liveguru_User_02_Product extends BaseTest {
 		Assert.assertTrue(searchResultPage.isResultPriceInRange(firstPriceFrom, firstPriceTo));
 
 		ExtentTestManager.getTest().log(Status.INFO, "Product_05_Advance_Search - Step 05: Go to Advance seach page");
-		searchResultPage.openPage(BasePageUI.FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
+		searchResultPage.openPage(BasePageUI.USER_FOOTER_DYNAMIC_LOCATOR_BY_NAME, "Advanced Search");
 		advanceSearchPage = UserPageGeneratorManager.openAdvanceSearchPage(driver);
 
 		ExtentTestManager.getTest().log(Status.INFO,

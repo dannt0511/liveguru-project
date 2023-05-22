@@ -2,13 +2,16 @@ package commons;
 
 public class BasePageUI {
 
-	public static final String HEADER_ACCOUNT_MENU = "css=div.account-cart-wrapper>a";
-	public static final String HEADER_ACCOUNT_PULLDOWN = "xpath=//div[@id='header-account']";
-	public static final String HEADER_ACCOUNT_MENU_LINK_BY_NAME = "xpath=//div[@id='header-account']//a[text() = '%s']";
+	public static final String USER_HEADER_ACCOUNT_MENU = "css=div.account-cart-wrapper>a";
+	public static final String USER_HEADER_ACCOUNT_PULLDOWN = "xpath=//div[@id='header-account']";
+	public static final String USER_HEADER_ACCOUNT_MENU_LINK_BY_NAME = "xpath=//div[@id='header-account']//a[text() = '%s']";
 
-	public static final String LOGO = "css=a.logo";
-	public static final String NAV_MENU = "xpath=//a[text() = '%s']";
+	public static final String USER_LOGO = "css=a.logo";
+	public static final String USER_NAV_MENU = "xpath=//a[text() = '%s']";
 
-	public static final String SIDE_MENU_DYNAMIC_LOCATOR_BY_NAME = "xpath=//a[text() = 'Account Information']";
-	public static final String FOOTER_DYNAMIC_LOCATOR_BY_NAME = "xpath=//div[@class='footer']//a[text() = '%s']";
+	public static final String USER_SIDE_MENU_DYNAMIC_LOCATOR_BY_NAME = "xpath=//a[text() = 'Account Information']";
+	public static final String USER_FOOTER_DYNAMIC_LOCATOR_BY_NAME = "xpath=//div[@class='footer']//a[text() = '%s']";
+
+	public static final String ADMIN_NAV_BAR_MENU_BY_NAME = "xpath=//span[text() = '%s']//ancestor::li";
+	public static final String ADMIN_NAV_BAR_SUB_MENU_LEVEL_1 = "xpath=//span[text() = '%s']//parent::a";
 }

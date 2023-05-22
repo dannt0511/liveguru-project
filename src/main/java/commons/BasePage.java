@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import admin.pageObject.OrderListPageObject;
 import user.pageObject.HomePageObject;
 import user.pageObject.ProductListPageObject;
 
@@ -484,23 +485,52 @@ public class BasePage {
 	}
 
 	public void clickLinkOnMyAccountMenu(String linkName) {
-		waitForElementClickable(BasePageUI.HEADER_ACCOUNT_MENU);
-		clickToElement(BasePageUI.HEADER_ACCOUNT_MENU);
-		waitForElementVisible(BasePageUI.HEADER_ACCOUNT_PULLDOWN);
-		waitForElementClickable(BasePageUI.HEADER_ACCOUNT_MENU_LINK_BY_NAME, linkName);
-		clickToElement(BasePageUI.HEADER_ACCOUNT_MENU_LINK_BY_NAME, linkName);
+		waitForElementClickable(BasePageUI.USER_HEADER_ACCOUNT_MENU);
+		clickToElement(BasePageUI.USER_HEADER_ACCOUNT_MENU);
+		waitForElementVisible(BasePageUI.USER_HEADER_ACCOUNT_PULLDOWN);
+		waitForElementClickable(BasePageUI.USER_HEADER_ACCOUNT_MENU_LINK_BY_NAME, linkName);
+		clickToElement(BasePageUI.USER_HEADER_ACCOUNT_MENU_LINK_BY_NAME, linkName);
 	}
 
 	public HomePageObject clickLogo() {
-		waitForElementClickable(BasePageUI.LOGO);
-		clickToElement(BasePageUI.LOGO);
+		waitForElementClickable(BasePageUI.USER_LOGO);
+		clickToElement(BasePageUI.USER_LOGO);
 		return UserPageGeneratorManager.openHomePage(driver);
 	}
 
 	public ProductListPageObject openProductListFromSubHeader(String menuName) {
-		waitForElementClickable(BasePageUI.NAV_MENU, menuName);
-		clickToElement(BasePageUI.NAV_MENU, menuName);
+		waitForElementClickable(BasePageUI.USER_NAV_MENU, menuName);
+		clickToElement(BasePageUI.USER_NAV_MENU, menuName);
 		return UserPageGeneratorManager.openProductListPage(driver);
 	}
 
+	public BasePage openPageFromNavBar(String parentMenu, String... subMenu) {
+		waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
+		hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
+		switch (parentMenu) {
+		case "Sales":
+			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+		case "Customers":
+			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+
+		case "Catalog":
+			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[0]);
+			hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[0]);
+			if (subMenu[1].equals("Customer Reviews")) {
+				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
+				hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
+				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[2]);
+				clickToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[2]);
+			} else {
+				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
+				clickToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
+			}
+		default:
+			new RuntimeException("Wrong menu name");
+		}
+
+		return null;
+	}
 }
