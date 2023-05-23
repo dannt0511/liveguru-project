@@ -1,5 +1,6 @@
 package commons;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -12,6 +13,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.CapabilityType;
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -35,13 +38,19 @@ public class BaseTest {
 		BrowserList browser = BrowserList.valueOf(browserName.toUpperCase());
 		switch (browser) {
 		case FIREFOX:
-			System.out.println("BaseTest: create driver");
+			FirefoxOptions options = new FirefoxOptions();
+			options.addPreference("browser.download.folderList", 2);
+			options.addPreference("browser.download.dir", GlobalConstants.DOWNLOAD_FILE_PATH);
+			options.addPreference("browser.download.useDownloadDir", true);
+			options.addPreference("browser.helperApps.neverAsk.saveToDisk",
+					"application/pdf, image/png, image/pjpeg, image/jpeg, image/jpg");
+			options.addPreference("pdfjs.disabled", true);
 			System.setProperty("webdriver.gecko.driver",
 					GlobalConstants.PROJECT_PATH + "\\browserDriver\\geckodriver.exe");
 			System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "true");
 			System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE,
 					GlobalConstants.PROJECT_PATH + "\\browserLogs\\FirefoxLog.log");
-			driver = WebDriverManager.firefoxdriver().create();
+			driver = new FirefoxDriver(options);
 			break;
 		case CHROME:
 			System.setProperty("webdriver.chrome.args", "--disable-logging");
@@ -51,7 +60,11 @@ public class BaseTest {
 			chromeOption.addArguments("--disable-geolocation");
 			chromeOption.setExperimentalOption("useAutomationExtension", false);
 			chromeOption.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+			chromeOption.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			Map<String, Object> prefs = new HashMap<String, Object>();
+			prefs.put("profile.default_content_settings.popups", 0);
+			prefs.put("download.prompt_for_download", "false");
+			prefs.put("download.default_directory", GlobalConstants.DOWNLOAD_FILE_PATH);
 			prefs.put("credentials_enable_service", false);
 			prefs.put("profile.password_manager_enabled", false);
 			chromeOption.setExperimentalOption("prefs", prefs);
@@ -139,6 +152,22 @@ public class BaseTest {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+		}
+	}
+
+	@BeforeSuite
+	public void deleteAllFileInFolder() {
+		try {
+			File file = new File(GlobalConstants.DOWNLOAD_FILE_PATH);
+			File[] listOfFiles = file.listFiles();
+			System.out.println("File = " + listOfFiles.length);
+			for (int i = 0; i < listOfFiles.length; i++) {
+				if (listOfFiles[i].isFile()) {
+					new File(listOfFiles[i].toString()).delete();
+				}
+			}
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
 		}
 	}
 }

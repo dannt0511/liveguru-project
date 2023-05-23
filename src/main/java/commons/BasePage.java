@@ -15,7 +15,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import admin.pageObject.OrderListPageObject;
 import user.pageObject.HomePageObject;
 import user.pageObject.ProductListPageObject;
 
@@ -507,15 +506,7 @@ public class BasePage {
 	public BasePage openPageFromNavBar(String parentMenu, String... subMenu) {
 		waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
 		hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
-		switch (parentMenu) {
-		case "Sales":
-			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
-			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
-		case "Customers":
-			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
-			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
-
-		case "Catalog":
+		if (parentMenu.equals("Catalog")) {
 			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[0]);
 			hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[0]);
 			if (subMenu[1].equals("Customer Reviews")) {
@@ -523,14 +514,52 @@ public class BasePage {
 				hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
 				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[2]);
 				clickToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[2]);
+				return AdminPageGeneratorManager.openReviewListPage(driver);
 			} else {
 				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
 				clickToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
+				return AdminPageGeneratorManager.openRatingListPage(driver);
 			}
-		default:
-			new RuntimeException("Wrong menu name");
+		} else {
+			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+			switch (subMenu[0]) {
+			case "Orders":
+				return AdminPageGeneratorManager.openOrderListPage(driver);
+			case "Invoices":
+				return AdminPageGeneratorManager.openInvoicesListPage(driver);
+			case "Manage Customers":
+				return AdminPageGeneratorManager.openCustomerListPage(driver);
+			default:
+				return null;
+			}
 		}
 
-		return null;
+	}
+
+	public void clickAdminSearchButton() {
+		waitForElementClickable(BasePageUI.ADMIN_SEARCH_BUTTON);
+		clickToElement(BasePageUI.ADMIN_SEARCH_BUTTON);
+		waitForElementInvisible(BasePageUI.ADMIN_LOADING_ICON);
+	}
+
+	public void checkToRecordCheckbox(int index) {
+		waitForAllElementsVisible(BasePageUI.ADMIN_TABLE_CHECKBOX);
+		List<WebElement> checkboxList = getElements(BasePageUI.ADMIN_TABLE_CHECKBOX);
+		if (!checkboxList.get(index - 1).isSelected()) {
+			checkboxList.get(index - 1).click();
+		}
+	}
+
+	public void selectActionSelectbox(String action) {
+		waitForElementClickable(BasePageUI.ADMIN_ACTION_SELECTBOX);
+		selectInDefaultDropdown(BasePageUI.ADMIN_ACTION_SELECTBOX, action);
+
+	}
+
+	public void clickSubmitButton() {
+		waitForElementClickable(BasePageUI.ADMIN_SUBMIT_BUTTON);
+		clickToElement(BasePageUI.ADMIN_SUBMIT_BUTTON);
+
 	}
 }

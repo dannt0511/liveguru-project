@@ -14,4 +14,9 @@ public class BasePageUI {
 
 	public static final String ADMIN_NAV_BAR_MENU_BY_NAME = "xpath=//span[text() = '%s']//ancestor::li";
 	public static final String ADMIN_NAV_BAR_SUB_MENU_LEVEL_1 = "xpath=//span[text() = '%s']//parent::a";
+	public static final String ADMIN_SEARCH_BUTTON = "xpath=//button[@title='Search']";
+	public static final String ADMIN_TABLE_CHECKBOX = "xpath=//input[@type='checkbox']";
+	public static final String ADMIN_ACTION_SELECTBOX = "CSS=select#sales_order_grid_massaction-select";
+	public static final String ADMIN_SUBMIT_BUTTON = "xpath=//button[@title='Submit']";
+	public static final String ADMIN_LOADING_ICON = "css=p#loading_mask_loader";
 }
