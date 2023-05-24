@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import admin.pageObject.CustomerListPageObject;
 import admin.pageObject.EditReviewPageObject;
+import admin.pageObject.InvoicesListPageObject;
 import admin.pageObject.LoginPageObject;
 import admin.pageObject.OrderListPageObject;
 import admin.pageObject.ReviewListPageObject;
@@ -31,9 +32,8 @@ public class AdminPageGeneratorManager {
 		return new OrderListPageObject(driver);
 	}
 
-	public static BasePage openInvoicesListPage(WebDriver driver) {
-		// TODO Auto-generated method stub
-		return null;
+	public static InvoicesListPageObject openInvoicesListPage(WebDriver driver) {
+		return new InvoicesListPageObject(driver);
 	}
 
 	public static EditReviewPageObject openEditReviewPage(WebDriver driver) {

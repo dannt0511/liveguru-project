@@ -19,7 +19,7 @@ public class ReviewListPageObject extends BasePage{
 	public EditReviewPageObject clickRecordEditLink(int index) {
 		waitForAllElementsVisible(ReviewListPageUI.EDIT_LINK);
 		List<WebElement> linkList = getElements(ReviewListPageUI.EDIT_LINK);
-		linkList.get(index - 0).click();
+		linkList.get(index - 1).click();
 		return AdminPageGeneratorManager.openEditReviewPage(driver);
 	}
 

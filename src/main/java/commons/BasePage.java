@@ -507,15 +507,15 @@ public class BasePage {
 		waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
 		hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
 		if (parentMenu.equals("Catalog")) {
-			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1);
-			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1);
+			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+			hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
 			System.out.println("hover to level 1");
 			if (subMenu[1].equals("Customer Reviews")) {
-				waitForElementVisible(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_2, subMenu[1]);
-				clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_2, subMenu[1]);
+				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[1]);
+				hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[1]);
 				System.out.println("hover to level 2");
-				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[2]);
-				clickToElement(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[2]);
+				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[2]);
+				clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[2]);
 				return AdminPageGeneratorManager.openReviewListPage(driver);
 			} else {
 				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[1]);
@@ -542,6 +542,10 @@ public class BasePage {
 	public void clickAdminSearchButton() {
 		waitForElementClickable(BasePageUI.ADMIN_SEARCH_BUTTON);
 		clickToElement(BasePageUI.ADMIN_SEARCH_BUTTON);
+		waitAdminPageLoadReady();
+	}
+	
+	public void waitAdminPageLoadReady() {
 		waitForElementInvisible(BasePageUI.ADMIN_LOADING_ICON);
 	}
 
