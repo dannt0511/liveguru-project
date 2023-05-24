@@ -25,4 +25,14 @@ public class ProductDetailPageObject extends BasePage {
 		return UserPageGeneratorManager.openReviewProductPage(driver);
 	}
 
+	public void clickReviewTab() {
+		waitForElementClickable(ProductDetailPageUI.REVIEW_TAB);
+		clickToElement(ProductDetailPageUI.REVIEW_TAB);
+
+	}
+
+	public boolean isReviewSummaryDisplayed(String reviewTitle) {
+		return isElementDisplayed(ProductDetailPageUI.REVIEW_RECORD_BY_SUMMARY, reviewTitle);
+	}
+
 }

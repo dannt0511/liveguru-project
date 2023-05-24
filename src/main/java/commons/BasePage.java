@@ -507,22 +507,24 @@ public class BasePage {
 		waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
 		hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, parentMenu);
 		if (parentMenu.equals("Catalog")) {
-			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[0]);
-			hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[0]);
+			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1);
+			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1);
+			System.out.println("hover to level 1");
 			if (subMenu[1].equals("Customer Reviews")) {
-				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
-				hoverMouseToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
-				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[2]);
-				clickToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[2]);
+				waitForElementVisible(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_2, subMenu[1]);
+				clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_2, subMenu[1]);
+				System.out.println("hover to level 2");
+				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[2]);
+				clickToElement(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[2]);
 				return AdminPageGeneratorManager.openReviewListPage(driver);
 			} else {
-				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
-				clickToElement(BasePageUI.ADMIN_NAV_BAR_MENU_BY_NAME, subMenu[1]);
+				waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[1]);
+				clickToElement(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[1]);
 				return AdminPageGeneratorManager.openRatingListPage(driver);
 			}
 		} else {
-			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
-			clickToElement(BasePageUI.ADMIN_NAV_BAR_SUB_MENU_LEVEL_1, subMenu[0]);
+			waitForElementClickable(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[0]);
+			clickToElement(BasePageUI.ADMIN_NAV_BAR_DESTINATION_MENU, subMenu[0]);
 			switch (subMenu[0]) {
 			case "Orders":
 				return AdminPageGeneratorManager.openOrderListPage(driver);
@@ -562,4 +564,17 @@ public class BasePage {
 		clickToElement(BasePageUI.ADMIN_SUBMIT_BUTTON);
 
 	}
+
+	public void clickHeaderTableToSortAsc(String headerName) {
+		waitForElementClickable(BasePageUI.ADMIN_TABLE_HEADER_BY_NAME, headerName);
+		clickToElement(BasePageUI.ADMIN_TABLE_HEADER_BY_NAME, headerName);
+
+	}
+
+	public void sortTableinDesc() {
+		waitForElementClickable(BasePageUI.TABLE_SORT_ASC);
+		clickToElement(BasePageUI.TABLE_SORT_ASC);
+
+	}
+
 }

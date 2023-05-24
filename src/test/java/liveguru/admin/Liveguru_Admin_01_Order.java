@@ -4,6 +4,7 @@ import java.lang.reflect.Method;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -75,6 +76,12 @@ public class Liveguru_Admin_01_Order extends BaseTest {
 		orderListPage.selectActionSelectbox(action);
 		orderListPage.clickSubmitButton();
 		Assert.assertTrue(orderListPage.isFileDownloaded(filename));
-		;
+
 	}
+	
+	@AfterClass
+	public void afterClass() {
+		closeBrowserDriver();
+	}
+
 }

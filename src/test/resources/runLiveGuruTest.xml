@@ -8,7 +8,7 @@
 		<parameter name="userAppUrl" value="http://live.techpanda.org/" />
 		<parameter name="adminAppUrl" value="http://live.techpanda.org/index.php/backendlogin" />
 		<classes>
-			<class name="liveguru.admin.Liveguru_Admin_01_Order" />
+			<class name="liveguru.admin.Liveguru_Admin_02_Review" />
 		</classes>
 	</test>
 </suite>
