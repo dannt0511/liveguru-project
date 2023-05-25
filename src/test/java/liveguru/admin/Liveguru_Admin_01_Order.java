@@ -78,15 +78,44 @@ public class Liveguru_Admin_01_Order extends BaseTest {
 		Assert.assertTrue(orderListPage.isFileDownloaded(filename));
 
 	}
-	
+
 	@Test
 	public void Order_02_View_Per_Page(Method method) {
 		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Order_01_Print_Invoices");
 		ExtentTestManager.getTest().log(Status.INFO, "Order_01_Print_Invoices - Step 01: Go to order list page");
-		orderListPage.openPageFromNavBar("Sales", "Orders");
+		orderListPage.clickResetFilterButton();
+		orderListPage.waitAdminPageLoadReady();
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Order_01_Print_Invoices - Step 02: Verify if there are 20 records per page");
+		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(20));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Order_01_Print_Invoices - Step 03: Select view 30 record per page");
+		orderListPage.selectViewPerPageSelectbox("30");
+		orderListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(30));
 		
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Order_01_Print_Invoices - Step 04: Select view 50 record per page");
+		orderListPage.selectViewPerPageSelectbox("50");
+		orderListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(50));
+		
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Order_01_Print_Invoices - Step 05: Select view 100 record per page");
+		orderListPage.selectViewPerPageSelectbox("100");
+		orderListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(100));
+		
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Order_01_Print_Invoices - Step 06: Select view 200 record per page");
+		orderListPage.selectViewPerPageSelectbox("200");
+		orderListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(200));
+
 	}
-	
+
 	@AfterClass
 	public void afterClass() {
 		closeBrowserDriver();

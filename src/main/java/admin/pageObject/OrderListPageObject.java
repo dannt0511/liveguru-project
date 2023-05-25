@@ -108,4 +108,21 @@ public class OrderListPageObject extends BasePage {
 		}
 	}
 
+	public boolean isRecordPerPageCorrect(int number) {
+		waitForAllElementsVisible(OrderListPageUI.RECORD_NUMBER);
+		return getElementsSize(OrderListPageUI.RECORD_NUMBER) == number;
+	}
+
+	public void selectViewPerPageSelectbox(String value) {
+		waitForElementClickable(OrderListPageUI.VIEW_PER_PAGE_SELECTBOX);
+		selectInDefaultDropdown(OrderListPageUI.VIEW_PER_PAGE_SELECTBOX, value);
+
+	}
+
+	public void clickResetFilterButton() {
+		waitForElementClickable(OrderListPageUI.RESET_FILTER_BUTTON);
+		clickToElement(OrderListPageUI.RESET_FILTER_BUTTON);
+
+	}
+
 }
