@@ -79,6 +79,14 @@ public class Liveguru_Admin_01_Order extends BaseTest {
 
 	}
 	
+	@Test
+	public void Order_02_View_Per_Page(Method method) {
+		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Order_01_Print_Invoices");
+		ExtentTestManager.getTest().log(Status.INFO, "Order_01_Print_Invoices - Step 01: Go to order list page");
+		orderListPage.openPageFromNavBar("Sales", "Orders");
+		
+	}
+	
 	@AfterClass
 	public void afterClass() {
 		closeBrowserDriver();

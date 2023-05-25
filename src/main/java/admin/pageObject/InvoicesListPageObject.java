@@ -29,9 +29,13 @@ public class InvoicesListPageObject extends BasePage {
 		}
 
 		for (String text : dataTextList) {
+			System.out.println("ori text: " + text);
 			sortedList.add(text);
 		}
-		Collections.sort(sortedList);
+		Collections.sort(sortedList, String.CASE_INSENSITIVE_ORDER);
+		for (String text : sortedList) {
+			System.out.println("sorted: " + text);
+		}
 
 		return dataTextList.equals(sortedList);
 	}
@@ -48,7 +52,7 @@ public class InvoicesListPageObject extends BasePage {
 		for (String text : dataTextList) {
 			sortedList.add(text);
 		}
-		Collections.sort(sortedList);
+		Collections.sort(sortedList, String.CASE_INSENSITIVE_ORDER);
 		Collections.reverse(sortedList);
 
 		return dataTextList.equals(sortedList);
@@ -99,6 +103,43 @@ public class InvoicesListPageObject extends BasePage {
 			e.printStackTrace();
 		}
 		return date;
+	}
+
+	public boolean isRecordFloatSortedAsc(String columnName) {
+		String index = String.valueOf(getElementsSize(InvoicesListPageUI.COLUMN_INDEX_BY_HEADER, columnName) + 1);
+		List<Float> numberList = new ArrayList<Float>();
+		List<Float> sortedList = new ArrayList<Float>();
+		List<WebElement> elementList = getElements(InvoicesListPageUI.DATA_COLUMN_BY_INDEX, index);
+		for (WebElement element : elementList) {
+			String number = element.getText().replace("$", "").replace(",", "");
+			numberList.add(Float.parseFloat(number));
+		}
+
+		for (Float number : numberList) {
+			sortedList.add(number);
+		}
+		Collections.sort(sortedList);
+
+		return numberList.equals(sortedList);
+	}
+
+	public boolean isRecordFloatSortedDesc(String columnName) {
+		String index = String.valueOf(getElementsSize(InvoicesListPageUI.COLUMN_INDEX_BY_HEADER, columnName) + 1);
+		List<Float> numberList = new ArrayList<Float>();
+		List<Float> sortedList = new ArrayList<Float>();
+		List<WebElement> elementList = getElements(InvoicesListPageUI.DATA_COLUMN_BY_INDEX, index);
+		for (WebElement element : elementList) {
+			String number = element.getText().replace("$", "").replace(",", "");
+			numberList.add(Float.parseFloat(number));
+		}
+
+		for (Float number : numberList) {
+			sortedList.add(number);
+		}
+		Collections.sort(sortedList);
+		Collections.reverse(sortedList);
+
+		return numberList.equals(sortedList);
 	}
 
 }

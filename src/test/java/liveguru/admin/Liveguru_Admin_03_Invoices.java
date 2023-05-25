@@ -66,6 +66,55 @@ public class Liveguru_Admin_03_Invoices extends BaseTest {
 		invoicesListPage.sortTableinDesc();
 		invoicesListPage.waitAdminPageLoadReady();
 		Assert.assertTrue(invoicesListPage.isRecordDateSortedDesc("Invoice Date"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 05: Verify if the records are sorted asc by order no");
+		invoicesListPage.clickHeaderTableToSortAsc("Order #");
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordSortedAsc("Order #"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 06: Verify if the records are sorted desc by order no");
+		invoicesListPage.sortTableinDesc();
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordSortedDesc("Order #"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 07: Verify if the records are sorted asc by order date");
+		invoicesListPage.clickHeaderTableToSortAsc("Order Date");
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordDateSortedAsc("Order Date"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 08: Verify if the records are sorted desc by order date");
+		invoicesListPage.sortTableinDesc();
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordDateSortedDesc("Order Date"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 09: Verify if the records are sorted asc by Bill to Name");
+		invoicesListPage.clickHeaderTableToSortAsc("Bill to Name");
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordSortedAsc("Bill to Name"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 10: Verify if the records are sorted desc by Bill to Name");
+		invoicesListPage.sortTableinDesc();
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordSortedDesc("Bill to Name"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 11: Verify if the records are sorted asc by Amount");
+		invoicesListPage.clickHeaderTableToSortAsc("Amount");
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordFloatSortedAsc("Amount"));
+
+		ExtentTestManager.getTest().log(Status.INFO,
+				"Invoices_01_Sort - Step 10: Verify if the records are sorted desc by Amount");
+		invoicesListPage.sortTableinDesc();
+		invoicesListPage.waitAdminPageLoadReady();
+		Assert.assertTrue(invoicesListPage.isRecordFloatSortedDesc("Amount"));
+
 	}
 
 	@AfterClass
