@@ -22,7 +22,8 @@ import reportConfig.ExtentTestManager;
 public class Liveguru_Admin_01_Order extends BaseTest {
 
 	private WebDriver driver;
-	private String browser, record_status_01, record_status_02, action, actionErrorMsg, filename;
+	private String browser, record_status_01, record_status_02, action, actionErrorMsg, filename, selectedVisibleMsg,
+			unselectVisibleMsg;
 	private LoginPageObject loginPage;
 	private CustomerListPageObject customerListPage;
 	private OrderListPageObject orderListPage;
@@ -36,6 +37,8 @@ public class Liveguru_Admin_01_Order extends BaseTest {
 		action = "Print Invoices";
 		actionErrorMsg = "There are no printable documents related to selected orders.";
 		filename = "invoice";
+		selectedVisibleMsg = "200 items selected";
+		unselectVisibleMsg = "0 items selected";
 
 		driver = openBrowsers(browser, appUrl);
 		loginPage = AdminPageGeneratorManager.openLoginPage(driver);
@@ -95,25 +98,39 @@ public class Liveguru_Admin_01_Order extends BaseTest {
 		orderListPage.selectViewPerPageSelectbox("30");
 		orderListPage.waitAdminPageLoadReady();
 		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(30));
-		
+
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Order_01_Print_Invoices - Step 04: Select view 50 record per page");
 		orderListPage.selectViewPerPageSelectbox("50");
 		orderListPage.waitAdminPageLoadReady();
 		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(50));
-		
+
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Order_01_Print_Invoices - Step 05: Select view 100 record per page");
 		orderListPage.selectViewPerPageSelectbox("100");
 		orderListPage.waitAdminPageLoadReady();
 		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(100));
-		
+
 		ExtentTestManager.getTest().log(Status.INFO,
 				"Order_01_Print_Invoices - Step 06: Select view 200 record per page");
 		orderListPage.selectViewPerPageSelectbox("200");
 		orderListPage.waitAdminPageLoadReady();
 		Assert.assertTrue(orderListPage.isRecordPerPageCorrect(200));
 
+	}
+
+	@Test
+	public void Order_03_Checkbox_Select(Method method) {
+		ExtentTestManager.startTest(method.getName() + "-" + this.browser.toUpperCase(), "Order_03_Checkbox_Select");
+		ExtentTestManager.getTest().log(Status.INFO, "Order_03_Checkbox_Select - Step 01: Click Select Visible link");
+		orderListPage.clickSelectVisibleLink();
+		Assert.assertEquals(orderListPage.getSelectedRecordMsg(), selectedVisibleMsg);
+		Assert.assertTrue(orderListPage.isSelectedRecordNumber(200));
+
+		ExtentTestManager.getTest().log(Status.INFO, "Order_03_Checkbox_Select - Step 02: Click Unselect Visible link");
+		orderListPage.clickUnselectVisibleLink();
+		Assert.assertEquals(orderListPage.getSelectedRecordMsg(), unselectVisibleMsg);
+		Assert.assertTrue(orderListPage.isSelectedRecordNumber(0));
 	}
 
 	@AfterClass

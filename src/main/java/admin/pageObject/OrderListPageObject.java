@@ -1,11 +1,14 @@
 package admin.pageObject;
 
 import java.io.File;
+import java.util.List;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import admin.pageUIs.OrderListPageUI;
 import commons.BasePage;
+import commons.BasePageUI;
 import commons.GlobalConstants;
 
 public class OrderListPageObject extends BasePage {
@@ -122,6 +125,36 @@ public class OrderListPageObject extends BasePage {
 	public void clickResetFilterButton() {
 		waitForElementClickable(OrderListPageUI.RESET_FILTER_BUTTON);
 		clickToElement(OrderListPageUI.RESET_FILTER_BUTTON);
+
+	}
+
+	public void clickSelectVisibleLink() {
+		waitForElementClickable(OrderListPageUI.SELECT_VISIBLE_LINK);
+		clickToElement(OrderListPageUI.SELECT_VISIBLE_LINK);
+
+	}
+
+	public String getSelectedRecordMsg() {
+		waitForElementVisible(OrderListPageUI.SELECT_RECORD_COUNT_TEXT);
+		String[] elementText = getElementText(OrderListPageUI.SELECT_RECORD_COUNT_TEXT).split("\\|");
+		return elementText[2].trim();
+	}
+
+	public boolean isSelectedRecordNumber(int i) {
+		int number = 0;
+		waitForAllElementsVisible(BasePageUI.ADMIN_TABLE_CHECKBOX);
+		List<WebElement> checkboxList = getElements(BasePageUI.ADMIN_TABLE_CHECKBOX);
+		for (WebElement checkbox : checkboxList) {
+			if (checkbox.isSelected()) {
+				number = number + 1;
+			}
+		}
+		return number == i;
+	}
+
+	public void clickUnselectVisibleLink() {
+		waitForElementClickable(OrderListPageUI.UNSELECT_VISIBLE_LINK);
+		clickToElement(OrderListPageUI.UNSELECT_VISIBLE_LINK);
 
 	}
 
